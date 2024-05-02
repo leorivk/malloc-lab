@@ -44,8 +44,8 @@ team_t team = {
 #define SIZE_T_SIZE (ALIGN(sizeof(size_t)))
 
 /* 묵시적, 명시적 */
-// #define IMPLICIT
-#define EXPLICIT
+#define IMPLICIT
+// #define EXPLICIT
 
 /* 가용 블록 탐색 */
 // #define FIRST_FIT
@@ -401,7 +401,7 @@ static void place(void *bp, size_t asize)
 
             PUT(HDRP(NEXT_BLKP(bp)), PACK(csize - asize, 0));
             PUT(FTRP(NEXT_BLKP(bp)), PACK(csize - asize, 0));
-            add_to_free(NEXT_BLKP(bp));
+            add_to_free(NEXT_BLKP(bp)); 
         } else {
             PUT(HDRP(bp), PACK(csize, 1));
             PUT(FTRP(bp), PACK(csize, 1));
